@@ -1,0 +1,105 @@
+/* <div class="navbar">
+        <input type="checkbox">
+        <span></span>
+        <span></span>
+        <ul>
+            <li><a href="javascript:void(0)"></a>点赞</li>
+            <li><a href="javascript:void(0)"></a>投币</li>
+            <li><a href="javascript:void(0)"></a>收藏</li>
+            <li><a href="javascript:void(0)"></a>关注</li>
+            <li><a href="javascript:void(0)"></a>分享</li>
+        </ul>
+    </div>
+ */
+
+
+* {
+    /* 页面初始化 清除页面元素原有的内外边距 */
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+    /* 背景渐变色 */
+    background: linear-gradient(#99f, #f99);
+}
+
+/* 垂直居中 */
+body,
+.navbar,
+.navbar ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar {
+    position: relative;
+    background-color: #fff;
+    border-radius: 50px;
+}
+
+.navbar input {
+    width: 40px;
+    height: 40px;
+    opacity: 0;
+    box-shadow: #f99;
+}
+
+.navbar span {
+    position: absolute;
+    left: 5px;
+    top: calc(50% - 10px);
+    width: 30px;
+    height: 2px;
+    background-color: grey;
+    pointer-events: none;
+}
+
+.navbar span:nth-child(3) {
+    top: calc(50% + 11px);
+}
+
+.navbar ul {
+    width: 0px;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: 0.5s all;
+}
+
+.navbar ul li {
+    list-style: none;
+    margin: 0 15px;
+
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: hotpink;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.navbar ul li a:hover {
+    color: indigo;
+}
+
+.navbar input:checked~ul {
+    width: 425px;
+}
+
+.navbar input:checked ~ span:nth-child(2) {
+    top: calc(50% - 2px);
+    transform: rotate(-45deg);
+    background-color: #f99;
+    transition: top 0.3s ease-in-out,
+    transform 0.3s ease-in-out 0.3s;
+}
+.navbar input:checked~span:nth-child(3) {
+    top: calc(50% - 2px);
+    transform: rotate(45deg);
+    background-color: #f99;
+    transition: top 0.3s ease-in-out,
+        transform 0.3s ease-in-out 0.3s;
+}
